@@ -26,9 +26,9 @@ NexonPlus
 
 ## Shortcuts
 
-**Alt + s**: Start
-**Alt + t**: Set time
-**Alt + d**: Delete time
-**Alt + 1**: Select/unslect **All empty workday**
-**Alt + 2**: Select/unslect **All filled workday**
-**Alt + 3**: Select/unslect **All workday**
+**Alt + s**: Start  
+**Alt + t**: Set time  
+**Alt + d**: Delete time  
+**Alt + 1**: Select/unslect **All empty workday**  
+**Alt + 2**: Select/unslect **All filled workday**  
+**Alt + 3**: Select/unslect **All workday**  
