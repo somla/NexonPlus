@@ -3,6 +3,7 @@ NexonPlus
 
 # Install
 
+0. Download this repository (**Code -> Download Zip**)
 1. Open Google chrome
 2. Go to **chrome://extensions** (or **Option -> More tools -> Extensions**)
 3. Enable **Developer mode**
