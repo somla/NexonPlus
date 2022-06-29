@@ -1,0 +1,20 @@
+{
+  "name": "Nexon hack",
+  "description": "Nexon hack",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["https://nexonport.beko.hu/time/jelenletiiv?r=*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources":["nexonHackCtrl.js"],
+      "matches":["<all_urls>"]
+    }
+  ],
+  "permissions": [ "activeTab", "scripting"]
+}
