@@ -1,6 +1,9 @@
 # NexonPlus
 NexonPlus
 
+# Warning
+**You can use it, but it’s at your own risk.**
+
 # Install
 
 1. Download this repository (**Code -> Download Zip**)
