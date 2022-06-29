@@ -405,7 +405,7 @@ class UI {
         let self = this
         $(".jelenleti-iv-buttons-row:first").after(
             $("<div>").attr("id", "hack-header").append(
-                $("<button>").html("Start").click(function() {
+                $("<button>").html("Restart").click(function() {
                     self.render()
                 })
             )
@@ -420,7 +420,20 @@ window.hackStartInterval = setInterval(function() {
         return
     }
     ui = new UI()
+    try {
+        let nc = new TheNexonHackController()
+        let ctrl = nc.ctrl
+        let handleJelenletiIvQueryResponse = ctrl.handleJelenletiIvQueryResponse;
+        ctrl.handleJelenletiIvQueryResponse = function() {
+            handleJelenletiIvQueryResponse.apply(ctrl, arguments)
+            ui.render()
+        }
+    } catch(e) {
+        return;
+    }
     ui.renderStartButton()
+    ui.render()
+
     window.addEventListener("keydown", function(e){
         function chkToggle(id) {
             let chkbox = $(`#${id}`)
