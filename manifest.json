@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "run_at": "document_end",
-      "matches": ["https://nexonport.beko.hu/time/jelenletiiv?r=*"],
+      "matches": ["https://nexonport.*.hu/time/jelenletiiv?r=*"],
       "js": ["contentScript.js"]
     }
   ],
