@@ -22,7 +22,7 @@ NexonPlus
 1. Go to Nexon -> time sheet.
 2. Select days for modification (you can select **All empty workday** , **All filled workday**, **All workday**)
 3. Click **Set time** or **Delete time**
-*. If you can't see checkboxes and/or buttons click **Restart** or Press **Alt + r** to restart UI
+4. If you can't see checkboxes and/or buttons click **Restart** or Press **Alt + r** to restart UI
 
 ### Shortcuts
 
