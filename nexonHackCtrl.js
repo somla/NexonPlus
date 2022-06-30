@@ -58,7 +58,7 @@ class TheNexonHackController {
     }
     async deleteTimeDevision(dayIndex) {
         let queryObj = this.createTimeDevisionQueryBaseObject(dayIndex);
-        return await $.ajax("https://nexonport.beko.hu/time/api/jelenletiiv/sajat/egyeniIdofelosztasModositasaCommand?r=6", {
+        return await $.ajax("/time/api/jelenletiiv/sajat/egyeniIdofelosztasModositasaCommand?r=6", {
             data : JSON.stringify(queryObj),
             contentType : 'application/json;charset=UTF-8',
             type : 'POST'
@@ -66,7 +66,7 @@ class TheNexonHackController {
     }
     async deleteEvent(dayIndex) {
         let queryObj = this.createQueryBaseObject(dayIndex)
-        return await $.ajax("https://nexonport.beko.hu/time/api/jelenletiiv/sajat/esemenyekMenteseCommand?r=6", {
+        return await $.ajax("/time/api/jelenletiiv/sajat/esemenyekMenteseCommand?r=6", {
             data : JSON.stringify(queryObj),
             contentType : 'application/json;charset=UTF-8',
             type : 'POST'
@@ -106,7 +106,7 @@ class TheNexonHackController {
             }
         ]
         
-        return await $.ajax("https://nexonport.beko.hu/time/api/jelenletiiv/sajat/esemenyekMenteseCommand?r=6", {
+        return await $.ajax("/time/api/jelenletiiv/sajat/esemenyekMenteseCommand?r=6", {
             data : JSON.stringify(queryJson),
             contentType : 'application/json;charset=UTF-8',
             type : 'POST'

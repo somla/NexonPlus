@@ -8,8 +8,6 @@ NexonPlus
 
 1. Download this repository (**Code -> Download Zip**)
 2. Unzip downloaded file
-3. Open manifest.json
-4. Set match pattern for your company Nexon
 3. Open Google chrome
 4. Go to **chrome://extensions** (or **Option -> More tools -> Extensions**)
 5. Enable **Developer mode**
