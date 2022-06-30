@@ -4,7 +4,7 @@ NexonPlus
 # Warning
 **You can use it, but it’s at your own risk.**
 
-# Install
+## Install
 
 1. Download this repository (**Code -> Download Zip**)
 2. Unzip downloaded file
@@ -17,16 +17,16 @@ NexonPlus
 7. Select The NexonPlus directory
 8. Done
 
-# Usage
+## Usage
+
 1. Go to Nexon -> time sheet.
-2. Click **Start** or Press **Alt + s** (it will make some checkbox, and some buttons)
-3. Select days for modification (you can select **All empty workday** , **All filled workday**, **All workday**)
-4. Click **Set time** or **Delete time**
+2. Select days for modification (you can select **All empty workday** , **All filled workday**, **All workday**)
+3. Click **Set time** or **Delete time**
+*. If you can't see checkboxes and/or buttons click **Restart** or Press **Alt + r** to restart UI
 
+### Shortcuts
 
-## Shortcuts
-
-**Alt + s**: Start  
+**Alt + r**: Restart  
 **Alt + t**: Set time  
 **Alt + d**: Delete time  
 **Alt + 1**: Select/unslect **All empty workday**  

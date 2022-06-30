@@ -248,7 +248,7 @@ class UI {
                 })
             }
         }
-        $("#hack-header").after($("<div>").attr("id", "hack-main-buttons")
+        $("#hack-header").prepend($("<span>").attr("id", "hack-main-buttons")
         .append(
             $("<input>").attr("type", "checkbox").attr("id", "hack-chkbox-workingday-emptyday-all").change(createOnChange(".hack-chkbox-workingday.hack-chkbox-emptyday"))
         ).append(
@@ -442,7 +442,7 @@ window.hackStartInterval = setInterval(function() {
         }
         if(e.altKey) {
             switch(e.key) {
-                case "s": // start
+                case "r": // (re)start
                     ui.render()
                     break;
                 case "t": // set time
@@ -451,15 +451,15 @@ window.hackStartInterval = setInterval(function() {
                 case "d": // delete time
                     $("#hack-delete-time-btn").click()
                     break;
-                    case "1":
-                        chkToggle("hack-chkbox-workingday-emptyday-all")
-                        break;
-                    case "2":
-                        chkToggle("hack-chkbox-workingday-filledday-all")
-                        break;
-                    case "3":
-                        chkToggle("hack-day-all")
-                        break;
+                case "1":
+                    chkToggle("hack-chkbox-workingday-emptyday-all")
+                    break;
+                case "2":
+                    chkToggle("hack-chkbox-workingday-filledday-all")
+                    break;
+                case "3":
+                    chkToggle("hack-day-all")
+                    break;
             }
         }
         debugLog(e)
