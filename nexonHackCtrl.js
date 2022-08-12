@@ -33,7 +33,11 @@ class TheNexonHackController {
     isEmptyDay(day) {
         day = this.getDay(day);
         const startOfPresentColomnId = 21;
-        return day.oszlopok[startOfPresentColomnId] === undefined;
+        const holyDayIndex = 1;
+        const sickDayIndex = 15;
+        const isHolyday = day.tavolletTipusa !== undefined && day.tavolletTipusa === holyDayIndex;
+        const isSikDay = day.tavolletTipusa !== undefined && day.tavolletTipusa === sickDayIndex;
+        return day.oszlopok[startOfPresentColomnId] === undefined && !isHolyday && !isSikDay;
     }
     isWorkingDay(day) {
         return this.getDayType(day) === "Munkanap";
@@ -406,29 +410,50 @@ class UI {
         $(".jelenleti-iv-buttons-row:first").after(
             $("<div>").attr("id", "hack-header").append(
                 $("<button>").html("Restart").click(function() {
+                    self.rewriteTimesheetHandler()
                     self.render()
                 })
-            )
+            ).append(
+                $("<button>").html("Disable").click(function() {
+                    self.disable();
+                }))
         )
+    }
+    
+    disable() {
+        let self = this;
+        self.c.ctrl.handleJelenletiIvQueryResponse = self.handleJelenletiIvQueryResponseOriginal;
+        self.c.ctrl.loadJelenletiIvTable();
+        $("#hack-table-header").remove();
+    }
+
+    rewriteTimesheetHandler() {
+        let self = this;
+        self.c = new TheNexonHackController()
+        if(self.handleJelenletiIvQueryResponseOriginal === undefined) {
+            self.handleJelenletiIvQueryResponseOriginal = self.c.ctrl.handleJelenletiIvQueryResponse;
+        }
+        self.c.ctrl.handleJelenletiIvQueryResponse = function() {
+            self.handleJelenletiIvQueryResponseOriginal.apply(self.c.ctrl, arguments)
+            self.render()
+        }
+
     }
 }
 
 
 window.hackStartInterval = setInterval(function() {
-        
+    debugLog("hello interval")
     if($(".jelenleti-iv-buttons-row:first").length === 0 ) {
         return
     }
     ui = new UI()
     try {
-        let nc = new TheNexonHackController()
-        let ctrl = nc.ctrl
-        let handleJelenletiIvQueryResponse = ctrl.handleJelenletiIvQueryResponse;
-        ctrl.handleJelenletiIvQueryResponse = function() {
-            handleJelenletiIvQueryResponse.apply(ctrl, arguments)
-            ui.render()
-        }
+        new TheNexonHackController()
+        ui.rewriteTimesheetHandler()
+        
     } catch(e) {
+        debugLog(e)
         return;
     }
     ui.renderStartButton()
