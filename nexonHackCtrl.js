@@ -256,15 +256,15 @@ class UI {
         .append(
             $("<input>").attr("type", "checkbox").attr("id", "hack-chkbox-workingday-emptyday-all").change(createOnChange(".hack-chkbox-workingday.hack-chkbox-emptyday"))
         ).append(
-            " All empty workday "
+            " All empty workday (1) "
         ).append(
             $("<input>").attr("type", "checkbox").attr("id", "hack-chkbox-workingday-filledday-all").change(createOnChange(".hack-chkbox-workingday.hack-chkbox-filledday"))
         ).append(
-            " All filled workday "
+            " All filled workday (2) "
         ).append(
             $("<input>").attr("type", "checkbox").attr("id", "hack-day-all").change(createOnChange(".hack-chkbox-workingday"))
         ).append(
-            " All workday "
+            " All workday (3) "
         ).append(
          "| Checkin time: "
         ).append(
@@ -274,7 +274,7 @@ class UI {
         ).append(
             $("<input>").attr("id", "hack-chkouttime").val("16:20")
         ).append(
-            $("<button>").html("Set time").addClass("hack-ctrl-btn").attr("id", "hack-set-time-btn").click(async function () {
+            $("<button>").html("Set time (t)").addClass("hack-ctrl-btn").attr("id", "hack-set-time-btn").click(async function () {
                 self.disableCtrlButtons()
                 let checkinDateTime = $("#hack-chkintime").data("kendoTimePicker").value()
                 let checkinTime = { hours: checkinDateTime.getHours(),  minutes: checkinDateTime.getMinutes()}
@@ -305,7 +305,7 @@ class UI {
         ).append(
             " "
         ).append(
-            $("<button>").html("Delete  time").addClass("hack-ctrl-btn").attr("id", "hack-delete-time-btn").click(async function () {
+            $("<button>").html("Delete  time (d)").addClass("hack-ctrl-btn").attr("id", "hack-delete-time-btn").click(async function () {
                 self.disableCtrlButtons()
                 try {
                     let chkboxes = $(".hack-chkbox:checked");
@@ -409,12 +409,12 @@ class UI {
         let self = this
         $(".jelenleti-iv-buttons-row:first").after(
             $("<div>").attr("id", "hack-header").append(
-                $("<button>").html("Restart").click(function() {
+                $("<button>").attr("id","hack-restart-button").html("Restart (r)").click(function() {
                     self.rewriteTimesheetHandler()
                     self.render()
                 })
             ).append(
-                $("<button>").html("Disable").click(function() {
+                $("<button>").attr("id","hack-disable-button").html("Disable (q)").click(function() {
                     self.disable();
                 }))
         )
@@ -468,7 +468,11 @@ window.hackStartInterval = setInterval(function() {
         if(e.altKey) {
             switch(e.key) {
                 case "r": // (re)start
-                    ui.render()
+                    //ui.render()
+                    $("#hack-restart-button").click();
+                    break;
+                case "q":
+                    $("#hack-disable-button").click()
                     break;
                 case "t": // set time
                     $("#hack-set-time-btn").click()
